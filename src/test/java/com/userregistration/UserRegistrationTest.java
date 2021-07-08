@@ -7,11 +7,13 @@ import org.junit.Test;
 public class UserRegistrationTest {
 	UserRegistration userRegistration;
 
+	//
 	@Before
 	public void setUp() {
 		userRegistration = new UserRegistration();
 	}
 
+	// testCases for first name
 	@Test
 	public void givenName_WhenFirstNameValid_ShouldReturnTrue() {
 
@@ -40,6 +42,7 @@ public class UserRegistrationTest {
 		Assert.assertFalse(actual);
 	}
 
+	// test-Cases for Last Name
 	@Test
 	public void givenName_WhenLastNameValid_ShouldReturnTrue() {
 
@@ -65,6 +68,29 @@ public class UserRegistrationTest {
 	public void givenName_WhenLastNameContainsNumbers_ShouldReturnFalse() {
 
 		boolean actual = userRegistration.validateLastName("Patil123");
+		Assert.assertFalse(actual);
+	}
+	// test-cases for Email
+
+	@Test
+	public void givenEmail_WhenEmailValid_ShouldReturnTrue() {
+
+		boolean actual = userRegistration.validateEmail("Minal124@gmail.com");
+		Assert.assertTrue(actual);
+
+	}
+
+	@Test
+	public void givenEmail_WhenEmailNotContainsSpecialChar_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("Minalgmailcom");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenEmail_WhenEmail_should_not_end_with_numbers_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("Minal@gmail.com123");
 		Assert.assertFalse(actual);
 	}
 
