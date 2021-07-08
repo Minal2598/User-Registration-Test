@@ -93,5 +93,45 @@ public class UserRegistrationTest {
 		boolean actual = userRegistration.validateEmail("Minal@gmail.com123");
 		Assert.assertFalse(actual);
 	}
+	//Test-Cases for PhoneNumber
+	@Test
+	public void givenPhoneNumber_WhenPhoneNumberValid_ShouldReturnTrue() {
+
+		boolean actual = userRegistration.validatePhoneNumber("91 8953452345");
+		Assert.assertTrue(actual);
+
+	}
+	@Test
+	public void givenPhoneNumber_WhenPhoneNumber_Contain_char_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("91 895345234a");
+		Assert.assertFalse(actual);
+	}
+	@Test
+	public void givenPhoneNumber_WhenPhoneNumber_Contain_Specialchar_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("91 895345234%");
+		Assert.assertFalse(actual);
+	}
+	@Test
+	public void givenPhoneNumber_WhenPhoneNumber_Contain_moreThanOnespace_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("91  8953452345");
+		Assert.assertFalse(actual);
+	}
+	public void givenPhoneNumber_WhenPhoneNumber_Contain_moreThantenNumber_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("91 895345233221");
+		Assert.assertFalse(actual);
+	}
+	public void givenPhoneNumber_WhenPhoneNumber_Contain_LessThantenNumber_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateEmail("91 89534523");
+		Assert.assertFalse(actual);
+	}
+	
+	
+	
+	
 
 }
