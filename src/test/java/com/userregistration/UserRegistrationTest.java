@@ -29,14 +29,14 @@ public class UserRegistrationTest {
 	@Test
 	public void givenName_WhenLastNameValid_ShouldReturnTrue() {
 
-		boolean actual = userRegistration.validateFirstName("Patil");
+		boolean actual = userRegistration.validateLastName("Patil");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
 	public void givenName_WhenLastNameIsLowerCase_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validateFirstName("patil");
+		boolean actual = userRegistration.validateLastName("patil");
 		Assert.assertFalse(actual);
 	}
 
