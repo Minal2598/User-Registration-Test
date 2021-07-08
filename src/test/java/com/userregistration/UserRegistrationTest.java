@@ -119,11 +119,13 @@ public class UserRegistrationTest {
 		boolean actual = userRegistration.validateEmail("91  8953452345");
 		Assert.assertFalse(actual);
 	}
+	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_moreThantenNumber_ShouldReturnFalse() {
 
 		boolean actual = userRegistration.validateEmail("91 895345233221");
 		Assert.assertFalse(actual);
 	}
+	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_LessThantenNumber_ShouldReturnFalse() {
 
 		boolean actual = userRegistration.validateEmail("91 89534523");
