@@ -26,4 +26,18 @@ public class UserRegistrationTest {
 		Assert.assertFalse(actual);
 	}
 
+	@Test
+	public void givenName_WhenLastNameValid_ShouldReturnTrue() {
+
+		boolean actual = userRegistration.validateFirstName("Patil");
+		Assert.assertTrue(actual);
+	}
+
+	@Test
+	public void givenName_WhenLastNameIsLowerCase_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateFirstName("patil");
+		Assert.assertFalse(actual);
+	}
+
 }
