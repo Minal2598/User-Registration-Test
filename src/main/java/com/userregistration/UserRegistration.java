@@ -8,6 +8,7 @@ public class UserRegistration {
 	private static final String NAME_PATTERN = "^[A-Z]{1}([a-z]{2})+$";
 	private static final String EMAIL_PATTERN = "^[a-zA-Z]+([.+-_][a-zA-Z0-9]+)*@[a-zA-Z]+[.]+[a-zA-Z]{2,3}+([a-zA-Z]+)*$";
 	private static final String PHONE_PATTERN = "^[0-9]{0,2}\\s{0,1}[0-9]{10}$";
+	private static final String  PASSWORD_PATTERN = "^[a-zA-Z]{8,}$";
 
 	// Check valid First Name
 	public boolean validateFirstName(String firstName) {
@@ -32,6 +33,11 @@ public class UserRegistration {
 		return patternChecker(phoneNumber, PHONE_PATTERN);
 
 	}
+	// Check valid Password
+		public boolean validatePassWord(String passWord) {
+			return patternChecker(passWord, PASSWORD_PATTERN);
+
+		}
 
 	private boolean patternChecker(String input, String fieldPattern) {
 		Pattern pattern = Pattern.compile(fieldPattern);

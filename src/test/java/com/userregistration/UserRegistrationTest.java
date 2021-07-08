@@ -93,7 +93,8 @@ public class UserRegistrationTest {
 		boolean actual = userRegistration.validateEmail("Minal@gmail.com123");
 		Assert.assertFalse(actual);
 	}
-	//Test-Cases for PhoneNumber
+
+	// Test-Cases for PhoneNumber
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumberValid_ShouldReturnTrue() {
 
@@ -101,39 +102,62 @@ public class UserRegistrationTest {
 		Assert.assertTrue(actual);
 
 	}
+
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_char_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validateEmail("91 895345234a");
+		boolean actual = userRegistration.validatePhoneNumber("91 895345234a");
 		Assert.assertFalse(actual);
 	}
+
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_Specialchar_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validateEmail("91 895345234%");
+		boolean actual = userRegistration.validatePhoneNumber("91 895345234%");
 		Assert.assertFalse(actual);
 	}
+
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_moreThanOnespace_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validateEmail("91  8953452345");
+		boolean actual = userRegistration.validatePhoneNumber("91  8953452345");
 		Assert.assertFalse(actual);
 	}
+
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_moreThantenNumber_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validateEmail("91 895345233221");
+		boolean actual = userRegistration.validatePhoneNumber("91 895345233221");
 		Assert.assertFalse(actual);
 	}
+
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumber_Contain_LessThantenNumber_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validateEmail("91 89534523");
+		boolean actual = userRegistration.validatePhoneNumber("91 89534523");
 		Assert.assertFalse(actual);
 	}
-	
-	
-	
-	
+
+	// Test-cases for Password Rule1
+	@Test
+	public void givenPassWord_WhenPassWordValid_ShouldReturnTrue() {
+
+		boolean actual = userRegistration.validatePassWord("hdgsghhjn");
+		Assert.assertTrue(actual);
+	}
+
+	@Test
+	public void givenPassWord_WhenPassWord_Should_not_less_than_8_Character_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("hdgsgh");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenPassWord_WhenPassword_contain_number_char_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("abcdgds23242");
+		Assert.assertFalse(actual);
+	}
 
 }
