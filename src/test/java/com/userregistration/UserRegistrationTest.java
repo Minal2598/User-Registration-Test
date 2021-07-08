@@ -27,6 +27,20 @@ public class UserRegistrationTest {
 	}
 
 	@Test
+	public void givenName_WhenFirstNameContainsSpecialChar_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateFirstName("Minal@");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenName_WhenFirstNameContainsNumbers_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateFirstName("Minal123");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
 	public void givenName_WhenLastNameValid_ShouldReturnTrue() {
 
 		boolean actual = userRegistration.validateLastName("Patil");
@@ -37,6 +51,20 @@ public class UserRegistrationTest {
 	public void givenName_WhenLastNameIsLowerCase_ShouldReturnFalse() {
 
 		boolean actual = userRegistration.validateLastName("patil");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenName_WhenLastNameContainsSpecialChar_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateLastName("Patil@");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenName_WhenLastNameContainsNumbers_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validateLastName("Patil123");
 		Assert.assertFalse(actual);
 	}
 
