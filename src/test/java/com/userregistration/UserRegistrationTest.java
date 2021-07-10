@@ -7,8 +7,6 @@ import org.junit.Test;
 public class UserRegistrationTest {
 	UserRegistration userRegistration;
 
-	//
-	//
 	@Before
 	public void setUp() {
 		userRegistration = new UserRegistration();
@@ -139,22 +137,47 @@ public class UserRegistrationTest {
 		Assert.assertFalse(actual);
 	}
 
-	// Check Password Rule 2
+	// Check Password
+
 	@Test
 	public void givenpassword_WhenPassword_is_Valid_ShouldReturnTrue() {
-
-		boolean actual = userRegistration.validatePassWord("Abcdefgh221");
+		boolean actual = userRegistration.validatePassWord("A123acfgsgdsAvSgg");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
-	public void givenpassword_WhenPassword_NOT_Contain_Lower_Case_ShouldReturnFalse() {
-		boolean actual = userRegistration.validatePassWord("A@123");
+	public void givenpassword_WhenPassword_does_not_have_number_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("AbcdefgAFhi");
 		Assert.assertFalse(actual);
 	}
+
 	@Test
-	public void givenpassword_WhenPassword_NOT_Contain_Special_char_ShouldReturnFalse() {
-		boolean actual = userRegistration.validatePassWord("Aadadff8877123");
+	public void givenpassword_WhenPassword_does_not_have_capital_char_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("123bcdefghi");
 		Assert.assertFalse(actual);
 	}
+
+	@Test
+	public void givenpassword_WhenPassword_does_not_have_lowerase_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("123AFKITFIKFGP2334");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenpassword_WhenPassword_does_not_contain_Special_char_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("123AFKITFassdfr");
+		Assert.assertFalse(actual);
+	}
+
+	@Test
+	public void givenpassword_WhenPassword_does_not_have_space_ShouldReturnFalse() {
+
+		boolean actual = userRegistration.validatePassWord("123b Acdefghi");
+		Assert.assertFalse(actual);
+	}
+
 }
