@@ -13,6 +13,7 @@ public class UserRegistrationTest {
 	}
 
 	// testCases for first name
+
 	@Test
 	public void givenName_WhenFirstNameValid_ShouldReturnTrue() {
 
@@ -42,6 +43,7 @@ public class UserRegistrationTest {
 	}
 
 	// test-Cases for Last Name
+
 	@Test
 	public void givenName_WhenLastNameValid_ShouldReturnTrue() {
 
@@ -68,8 +70,7 @@ public class UserRegistrationTest {
 
 		boolean actual = userRegistration.validateLastName("Patil123");
 		Assert.assertFalse(actual);
-	}
-	// test-cases for Email
+	} // test-cases for Email
 
 	@Test
 	public void givenEmail_WhenEmailValid_ShouldReturnTrue() {
@@ -94,6 +95,7 @@ public class UserRegistrationTest {
 	}
 
 	// Test-Cases for PhoneNumber
+
 	@Test
 	public void givenPhoneNumber_WhenPhoneNumberValid_ShouldReturnTrue() {
 
@@ -141,28 +143,28 @@ public class UserRegistrationTest {
 
 	@Test
 	public void givenpassword_WhenPassword_is_Valid_ShouldReturnTrue() {
-		boolean actual = userRegistration.validatePassWord("A123acfgsgdsAvSgg");
+		boolean actual = userRegistration.validatePassWord("A123a#7c%^!)fgsgdsAvSgg");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
 	public void givenpassword_WhenPassword_does_not_have_number_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validatePassWord("AbcdefgAFhi");
+		boolean actual = userRegistration.validatePassWord("Aa#c%^!)fgsgdsAvSgg");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenpassword_WhenPassword_does_not_have_capital_char_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validatePassWord("123bcdefghi");
+		boolean actual = userRegistration.validatePassWord("12#3bcdefghi");
 		Assert.assertFalse(actual);
 	}
 
 	@Test
 	public void givenpassword_WhenPassword_does_not_have_lowerase_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validatePassWord("123AFKITFIKFGP2334");
+		boolean actual = userRegistration.validatePassWord("123AFK#ITFIKFGP2334");
 		Assert.assertFalse(actual);
 	}
 
@@ -176,7 +178,7 @@ public class UserRegistrationTest {
 	@Test
 	public void givenpassword_WhenPassword_does_not_have_space_ShouldReturnFalse() {
 
-		boolean actual = userRegistration.validatePassWord("123b Acdefghi");
+		boolean actual = userRegistration.validatePassWord("AQ23b Ac@defghi");
 		Assert.assertFalse(actual);
 	}
 
