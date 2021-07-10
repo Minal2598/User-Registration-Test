@@ -8,6 +8,7 @@ public class UserRegistrationTest {
 	UserRegistration userRegistration;
 
 	//
+	//
 	@Before
 	public void setUp() {
 		userRegistration = new UserRegistration();
@@ -138,26 +139,22 @@ public class UserRegistrationTest {
 		Assert.assertFalse(actual);
 	}
 
-	// Test-cases for Password Rule1
+	// Check Password Rule 2
 	@Test
-	public void givenPassWord_WhenPassWordValid_ShouldReturnTrue() {
+	public void givenpassword_WhenPassword_is_Valid_ShouldReturnTrue() {
 
-		boolean actual = userRegistration.validatePassWord("hdgsghhjn");
+		boolean actual = userRegistration.validatePassWord("Abcdefgh221");
 		Assert.assertTrue(actual);
 	}
 
 	@Test
-	public void givenPassWord_WhenPassWord_Should_not_less_than_8_Character_ShouldReturnFalse() {
-
-		boolean actual = userRegistration.validatePassWord("hdgsgh");
+	public void givenpassword_WhenPassword_NOT_Contain_Lower_Case_ShouldReturnFalse() {
+		boolean actual = userRegistration.validatePassWord("A@123");
 		Assert.assertFalse(actual);
 	}
-
 	@Test
-	public void givenPassWord_WhenPassword_contain_number_char_ShouldReturnFalse() {
-
-		boolean actual = userRegistration.validatePassWord("abcdgds23242");
+	public void givenpassword_WhenPassword_NOT_Contain_Special_char_ShouldReturnFalse() {
+		boolean actual = userRegistration.validatePassWord("Aadadff8877123");
 		Assert.assertFalse(actual);
 	}
-
 }
