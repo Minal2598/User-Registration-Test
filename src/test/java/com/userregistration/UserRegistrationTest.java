@@ -17,8 +17,13 @@ public class UserRegistrationTest {
 	@Test
 	public void givenName_WhenFirstNameValid_ShouldReturnTrue() {
 
-		boolean actual = userRegistration.validateFirstName("Minal");
-		Assert.assertTrue(actual);
+		
+		try {
+			boolean actual = userRegistration.validateFirstName("Minal");
+		Assert.assertTrue(actual);//(Fals);
+	}catch(Exception e) {
+        System.out.println("Exception occured is " + e);
+    }
 	}
 
 	@Test
